@@ -132,8 +132,8 @@ function Game() {
                 <p className='credit'>Implementation by Sean Mackey</p>
                 <div className='icons'>
                     <a href="https://www.linkedin.com/in/sean-mackey123/" target="_blank" rel="noreferrer"><span className="label"><BsLinkedin className='icon' /></span></a>
-                    <a href="https://seanmackey.me/" target="_blank" rel="noreferrer"><span className="label" >Portfolio</span></a>
-                    <a href="https://github.com/smackey15" target="_blank" rel="noreferrer"><span className="label"><BsGithub /></span></a>
+                    {/* <a href="https://seanmackey.me/" target="_blank" rel="noreferrer"><span className="label" >Portfolio</span></a>
+                    <a href="https://github.com/smackey15" target="_blank" rel="noreferrer"><span className="label"><BsGithub /></span></a> */}
                 </div>
             </div>
             <div>
