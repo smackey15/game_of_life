@@ -1,176 +1,167 @@
-.all, html {
+html {
     background-color: whitesmoke;
 }
 
-.header {
+.all {
+    background-color: whitesmoke;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
-    justify-content:space-between;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: safe center;
+}
+
+.layout {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 20px 16px 12px;
+    overflow-x: auto;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    column-gap: 12px;
+    min-height: 56px;
 }
 
 .menu {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: start;
 }
 
-.label {
-    margin-left: 20px;
-    margin-top: 25px;
+.favorites-label {
     color: black;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 #temp {
     background-color: lightblue;
     height: 25px;
-    margin-left: 10px;
-    margin-top: 25px;
     border-radius: 4px;
     border: solid 1px black;
 }
 
 .title {
-    padding-left: 20%;
+    justify-self: center;
+    margin: 0;
     font-weight: 900;
     font-size: 20px;
     white-space: nowrap;
+    /* Optical center over the indented board */
+    transform: translateX(6px);
+}
+
+.credit-row {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
 }
 
 .credit {
-    padding-left: 10%;
-    margin-top: 25px;
+    margin: 0;
     white-space: nowrap;
     font-weight: 500;
     color: black;
 }
 
-.icons {
-    margin-top: 27px;
-    white-space: nowrap;
-    padding-right: 2%;
+.icon-link {
+    display: flex;
+    color: black;
+    line-height: 0;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(100, 15px);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(100, minmax(0, 1fr));
+    grid-template-rows: repeat(36, 1fr);
+    width: calc(100% - 12px);
+    margin: 0 0 12px 12px;
+    padding: 0;
+    list-style: none;
+    aspect-ratio: 100 / 36;
+}
+
+.live-cell,
+.dead-cell {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    border: solid 1px lightblue;
+    cursor: pointer;
 }
 
 .live-cell {
     background-color: black;
-    height: 15px;
-    width: 15px;
-    border: solid 1px lightblue;
-    cursor: pointer
 }
 
 .dead-cell {
     background-color: gray;
-    height: 15px;
-    width: 15px;
-    border: solid 1px lightblue;
-    cursor: pointer
 }
 
 .footer {
     display: flex;
     align-items: center;
-    margin-top: -17.5px;
+    gap: 12px;
 }
 
-.start-on {
-    cursor: pointer;
-    color: black;
-    background-color: lightblue;
-    border-radius: 4px;
-    margin-left: 10px;
-    width: 100px;
-    height: 25px;
-    border: solid 1px;
+.controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 10px;
 }
 
-.start-off {
-    cursor: pointer;
-    color: lightblue;
-    background-color: black;
-    border-radius: 4px;
-    margin-left: 10px;
-    width: 100px;
-    height: 25px;
-}
-
-.stop-on {
-    cursor: pointer;
-    color: black;
-    background-color: lightblue;
-    border-radius: 4px;
-    margin-left: 10px;
-    width: 100px;
-    height: 25px;
-    border: solid 1px;
-}
-
-.stop-off {
-    cursor: pointer;
-    color: lightblue;
-    background-color: black;
-    border-radius: 4px;
-    margin-left: 10px;
-    width: 100px;
-    height: 25px;
-}
-
-.reset-on {
-    cursor: pointer;
-    color: black;
-    background-color: lightblue;
-    border-radius: 4px;
-    margin-left: 10px;
-    width: 100px;
-    height: 25px;
-    border: solid 1px;
-}
-
-.reset-off {
-    cursor: pointer;
-    color: lightblue;
-    background-color: black;
-    border-radius: 4px;
-    margin-left: 10px;
-    width: 100px;
-    height: 25px;
-}
-
+.start-on,
+.stop-on,
+.reset-on,
 .next-on {
     cursor: pointer;
     color: black;
     background-color: lightblue;
     border-radius: 4px;
-    margin-left: 10px;
     width: 100px;
     height: 25px;
     border: solid 1px;
 }
 
+.start-off,
+.stop-off,
+.reset-off,
 .next-off {
     cursor: pointer;
     color: lightblue;
     background-color: black;
     border-radius: 4px;
-    margin-left: 10px;
     width: 100px;
     height: 25px;
 }
 
 .generations {
+    flex: 1;
+    min-width: 0;
     color: black;
     font-weight: 600;
-    margin-left: 10px;
-    margin-right: 140px;
     white-space: nowrap;
-    text-overflow: hidden;
-    width: 100px;
 }
 
 .instructions {
+    flex-shrink: 0;
+    margin-left: auto;
     cursor: pointer;
     color: lightblue;
     background-color: black;
@@ -215,189 +206,87 @@
     height: 25px;
 }
 
-/* to be implemented: */
-
-/* @media screen and (max-width: 600px) {
-    .all {
-        background-color: whitesmoke;
+@media (max-width: 850px) {
+    .layout {
+        padding: 12px 16px 16px;
+        overflow-x: hidden;
     }
-    
+
     .header {
         display: flex;
         flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        min-height: 0;
     }
-    
-    .label {
-        margin-left: 20px;
-        margin-top: 25px;
-        color: black;
-        font-weight: 600;
-    }
-    
-    #temp {
-        background-color: lightblue;
-        height: 25px;
-        margin-left: 10px;
-        margin-top: 25px;
-        border-radius: 4px;
-        border: solid 1px black;
-        width: 50%;
-    }
-    
+
     .title {
-        margin-left: -50px;
-        font-weight: 900;
-        font-size: 20px;
-        white-space: nowrap;
-    }
-    
-    .credit {
-        margin-left: -20px;
-        margin-top: 25px;
-        white-space: nowrap;
-        font-weight: 500;
-        color: black;
-    }
-    
-    .icons {
-        margin-top: 27px;
-        white-space: nowrap;
-    }
-    
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(30, 15px);
-        grid-template-rows: auto;
-    }
-    
-    .live-cell {
-        background-color: black;
-        height: 15px;
-        width: 15px;
-        border: solid 1px lightblue;
-        cursor: pointer
-    }
-    
-    .dead-cell {
-        background-color: gray;
-        height: 15px;
-        width: 15px;
-        border: solid 1px lightblue;
-        cursor: pointer
-    }
-    
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: -17.5px;
-        margin-left: 80%;
-        height: auto;
-    
-    }
-    
-    .start-on {
-        cursor: pointer;
-        color: black;
-        background-color: lightblue;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-        border: solid 1px;
-    }
-    
-    .start-off {
-        cursor: pointer;
-        color: lightblue;
-        background-color: black;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-    }
-    
-    .stop-on {
-        cursor: pointer;
-        color: black;
-        background-color: lightblue;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-        border: solid 1px;
-    }
-    
-    .stop-off {
-        cursor: pointer;
-        color: lightblue;
-        background-color: black;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-    }
-    
-    .reset-on {
-        cursor: pointer;
-        color: black;
-        background-color: lightblue;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-        border: solid 1px;
-    }
-    
-    .reset-off {
-        cursor: pointer;
-        color: lightblue;
-        background-color: black;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-    }
-    
-    .next-on {
-        cursor: pointer;
-        color: black;
-        background-color: lightblue;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-        border: solid 1px;
-    }
-    
-    .next-off {
-        cursor: pointer;
-        color: lightblue;
-        background-color: black;
-        border-radius: 4px;
-        margin-left: 10px;
-        width: 100px;
-        height: 25px;
-    }
-    
-    .generations {
-        color: black;
-        font-weight: 600;
-        margin-left: 260%;
-        white-space: nowrap;
-        text-overflow: hidden;
-        width: 100px;
-    }
-    
-    .instructions {
-        cursor: pointer;
-        color: lightblue;
-        background-color: black;
-        border-radius: 4px;
-        width: 150px;
-        height: 35px;
-        white-space: nowrap;
+        order: -2;
+        transform: none;
+        text-align: center;
+        white-space: normal;
         font-size: 18px;
     }
 
-} */
+    .credit-row {
+        order: -1;
+        justify-content: center;
+    }
+
+    .credit {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .menu {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 4px;
+    }
+
+    .grid {
+        width: 100%;
+        margin: 16px 0 12px 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .controls {
+        flex-shrink: 1;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .generations {
+        flex: none;
+        width: 100%;
+    }
+
+    .instructions {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .start-on,
+    .stop-on,
+    .reset-on,
+    .next-on,
+    .start-off,
+    .stop-off,
+    .reset-off,
+    .next-off {
+        width: 100%;
+    }
+}

@@ -13,12 +13,9 @@ function Cell(props) {
     }
 
     return (
-        <div>
-            {props.pos !== 1 ?
-                <div className='dead-cell' onClick={handleAlive}>{}</div> :
-                <div className='live-cell' onClick={handleAlive}>{}</div>
-            }
-        </div>
+        props.pos !== 1 ?
+            <div className='dead-cell' onClick={handleAlive}></div> :
+            <div className='live-cell' onClick={handleAlive}></div>
     )
 }
 

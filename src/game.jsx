@@ -5,7 +5,7 @@ import {block, blinker, glider, pulsar, hammerhead, gosper} from './templates';
 import Cell from './cell';
 import Modal from './modal'
 import './game.css';
-import {BsLinkedin, BsGithub} from 'react-icons/bs'
+import {BsLinkedin} from 'react-icons/bs'
 
 function Game() {
     const grid = Array.from(Array(36), () => new Array(100).fill())
@@ -59,10 +59,8 @@ function Game() {
                 const nextGeneration = getNextGeneration(newObj) 
                 const nextBoard = convertObject(nextGeneration) 
                 setBoard(nextBoard)
-                console.log(board)
                 setGeneration(prevGeneration => prevGeneration + 1)
                 setNewObj(nextGeneration)
-                console.log(newObj)
             }, 90);
             return (()=> clearInterval(newIntervalId))
         }
@@ -114,10 +112,10 @@ function Game() {
 
     return (
         <div className='all'>
+            <div className='layout'>
             <div className='header'>
                 <div className='menu'>
-                <label className='label'>Favorites</label>
-                <br />
+                <label className='favorites-label' htmlFor='temp'>Favorites</label>
                 <select id='temp' onChange={handleInput}>
                     <option value='grid'>-- Please Select --</option>
                     <option value='block'>Block</option>
@@ -129,15 +127,16 @@ function Game() {
                 </select>
                 </div>
                 <p className='title'>Conway's Game of Life</p>
-                <p className='credit'>Implementation by Sean Mackey</p>
-                <div className='icons'>
-                    <a href="https://www.linkedin.com/in/sean-mackey123/" target="_blank" rel="noreferrer"><span className="label"><BsLinkedin className='icon' /></span></a>
-                    {/* <a href="https://seanmackey.me/" target="_blank" rel="noreferrer"><span className="label" >Portfolio</span></a>
-                    <a href="https://github.com/smackey15" target="_blank" rel="noreferrer"><span className="label"><BsGithub /></span></a> */}
+                <div className='credit-row'>
+                    <p className='credit'>Implementation by Sean Mackey</p>
+                    <a className='icon-link' href="https://www.linkedin.com/in/sean-mackey123/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                        <BsLinkedin className='icon' />
+                    </a>
+                    {/* <a href="https://seanmackey.me/" target="_blank" rel="noreferrer">Portfolio</a>
+                    <a href="https://github.com/smackey15" target="_blank" rel="noreferrer"><BsGithub /></a> */}
                 </div>
             </div>
-            <div>
-                <ul className='grid'>
+            <ul className='grid'>
                 {board.map((row,i) => 
                     row.map((col,j) =>
                     <Cell
@@ -149,10 +148,9 @@ function Game() {
                     setBoard={setBoard}
                 />))
                 }
-                </ul>
-           </div>
-           <br />
+            </ul>
            <div className='footer'>
+                <div className='controls'>
                 {!gameOn ?
                  <button className='start-off' onClick={handleStart}>Start</button> :
                  <button className='start-on' onClick={handleStart}>Start</button>
@@ -169,8 +167,10 @@ function Game() {
                  <button className='reset-off' onClick={handleReset}>Reset</button> :
                  <button className='reset-on' onClick={handleReset}>Reset</button>
                  }
+                </div>
                 <div className='generations'>Generations: {generation}</div>
                 <button className='instructions' onClick={openModal}>Instructions</button>
+            </div>
             </div>
 
             {modal ? 
